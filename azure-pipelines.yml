@@ -1,0 +1,24 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'clean package'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '17'
+    jdkArchitectureOption: 'x64'
+  displayName: 'Build Spring Boot Application'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.SourcesDirectory)/target'
+    artifactName: 'drop'
+  displayName: 'Publish JAR/WAR Artifact'
+
