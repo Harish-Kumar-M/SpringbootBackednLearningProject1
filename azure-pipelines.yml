@@ -3,8 +3,6 @@ trigger:
 
 pool:
   name: Default  # Replace with your agent pool name
-  demands:
-    - agent.os -equals Linux  # Adjust based on your OS
 
 steps:
 - task: Maven@3
