@@ -1,0 +1,22 @@
+schema
+{
+	query:Query
+	mutation:Mutation
+}
+
+type Query
+{
+	getstu: [Student]
+}
+type Mutation
+{
+	savestu(st_name : String! , st_dept : String!):Student!
+}
+type Student
+{
+	st_id:Int!
+	st_name:String!
+	st_dept:String!
+}
+
+
