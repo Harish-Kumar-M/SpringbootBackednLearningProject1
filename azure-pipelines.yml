@@ -2,7 +2,9 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: Default  # Replace with your agent pool name
+  demands:
+    - agent.os -equals Linux  # Adjust based on your OS
 
 steps:
 - task: Maven@3
